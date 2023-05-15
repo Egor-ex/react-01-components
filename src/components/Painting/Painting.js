@@ -1,4 +1,5 @@
-import defaultImage from '../logo.svg';
+import defaultImage from './logo.svg';
+import s from './Painting.module.css';
 import PropTypes from 'prop-types';
 
 export default function Painting(props) {
@@ -14,7 +15,7 @@ export default function Painting(props) {
   } = props; //деструктуризация
 
   return (
-    <div>
+    <div className={s.container}>
       <img src={imgUrl} alt={props.title} width="480" />
       <h2>{title}</h2>
       <p>

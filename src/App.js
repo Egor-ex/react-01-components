@@ -1,58 +1,50 @@
-import PaintingList from './components/PaintingList';
-import paintings from './paintings.json';
-import Section from './components/Section';
+import PaintingList from './components/Painting/PaintingList';
+import paintings from './components/Painting/paintings.json';
+import Section from './components/Painting/Section';
+
+import ColorPicker from 'components/ColorPicker/ColorPicker';
+import colorPickerOptions from './components/ColorPicker/colorPickerOptions.json';
+
+import Alert from 'components/Alert/Alert';
+
+import Container from 'components/Container/Container';
+
+import Profile from './components/Profile/Profile';
+import user from './components/Profile/user.json';
+
+import Statistics from 'components/Statistics/Statistics';
+import data from './components/Statistics/data.json';
+
+import FriendList from './components/FriendList/FriendList';
+import friends from './components/FriendList/friends.json';
+
+import TransactionHistory from './components/TransactionHistory/TransactionHistory';
+import transactions from './components/TransactionHistory/transactions.json';
 
 export default function App() {
   return (
-    <div>
-      <Section title="Топ недели">
-        <PaintingList items={paintings} />
-      </Section>
-
-      <Section title="Лучшее">
-        <PaintingList items={paintings} />
-      </Section>
-
-      {/* {paintings.map(painting => (
-        <Painting
-          key={painting.id}
-          imgUrl={painting.url}
-          title={painting.title}
-          author={painting.author.tag}
-          profileUrl={painting.author.url}
-          price={painting.price}
-          quantity={painting.quantity}
+    <div className="App">
+      <Container>
+        <Section title="Топ недели">
+          <PaintingList items={paintings} />
+        </Section>
+        <ColorPicker options={colorPickerOptions} />
+        <Alert text="Ошибка!" />
+        <Alert text="Ошибка!" type="success" />
+        <Alert text="Ошибка!" type="warning" />
+        <Alert text="Ошибка!" type="error" />
+        <Profile
+          name={user.name}
+          tag={user.tag}
+          location={user.location}
+          avatar={user.avatar}
+          stats={user.stats}
         />
-      ))} */}
+        <Statistics title="Upload stats" stats={data} />
+
+        <FriendList friends={friends} />
+        <TransactionHistory items={transactions} />
+      </Container>
     </div>
   );
 }
-
-// значение id, key(ключя) обязательно для React(отслеживание элементов колекции), на самый верхний элемент колекции(внутри map())
-
-//=================================================
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
